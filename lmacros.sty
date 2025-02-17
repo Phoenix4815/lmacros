@@ -1,0 +1,143 @@
+\ProvidesPackage{lmacros}
+
+\RequirePackage{amsmath,amsthm,mathtools}
+%\RequirePackage{diffcoeff}[=v4]
+
+\@ifclassloaded{beamer}{}{ %ugly fix for beamer errors
+	\newtheorem{theorem}{Theorem}[section]
+	\newtheorem*{theorem*}{Theorem}
+	\newtheorem{definition}[theorem]{Definition}
+	\newtheorem{example}[theorem]{Example}
+	\newtheorem{lemma}[theorem]{Lemma}
+	\newtheorem{corollary}[theorem]{Corollary}
+	\newtheorem{proposition}[theorem]{Proposition}
+	\newtheorem{remark}[theorem]{Remark}
+}
+
+\newcommand\N{\mathbb N}
+\newcommand\Z{\mathbb Z}
+\newcommand\Q{\mathbb Q}
+\newcommand\R{\mathbb R}
+\newcommand\C{\mathbb C}
+\newcommand\DD{\mathbb D}
+\newcommand{\MM}{\mathbb M}
+\newcommand\PP{\mathbb P}
+
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfGamma}{\mathbf{\Gamma}}
+
+\newcommand\RP{\R\mathrm{P}}
+\newcommand\CP{\C\mathrm{P}}
+
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calO}{\mathcal{O}}
+
+\newcommand{\frakg}{\mathfrak{g}}
+
+\newcommand{\ceq}{\vcentcolon=}
+
+%TODO: Flexible space
+
+\DeclareMathOperator{\restr}{res}
+\DeclareMathOperator{\Id}{Id}
+
+\let\eps\varepsilon
+
+\DeclareMathOperator{\Kern}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\Rank}{Rank}
+\DeclareMathOperator{\Trace}{Tr}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\let\tprod\otimes
+
+\DeclareMathOperator{\hodge}{\ast\!}
+\providecommand\D{\mathop{}\!\mathrm{d}}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\Vol}{Vol}
+
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\VF}{\mathfrak{X}}
+\DeclareMathOperator{\Grad}{Grad}
+\DeclareMathOperator{\Div}{Div}
+\newcommand{\Laplace}{\Delta}
+
+%% https://tex.stackexchange.com/questions/459167/typesetting-dalembertian-symbol
+%\makeatletter
+%\DeclareRobustCommand{\Dalembert}{\mathpalette\dalembertian@\relax}
+%\newcommand{\dalembertian@}[2]{%
+%  \begingroup
+%  \sbox\z@{$\m@th#1\square$}%
+%  \dimen0=\fontdimen8
+%    \ifx#1\displaystyle\textfont\else
+%    \ifx#1\textstyle\textfont\else
+%    \ifx#1\scriptstyle\scriptfont\else
+%    \scriptscriptfont\fi\fi\fi3
+%  \makebox[\wd\z@]{%
+%    \hbox to \ht\z@{%
+%      \vrule width \dimen0
+%      \kern-\dimen0
+%      \vbox to \ht\z@{
+%        \hrule height \dimen0 width \ht\z@
+%        \vss
+%        \hrule height 2\dimen0
+%      }%
+%      \kern-2.5\dimen0
+%      \vrule width 2.5\dimen0
+%    }%
+%  }%
+%  \endgroup
+%}
+%\makeatother
+%\newcommand{\Dalembert}{\square}
+
+\DeclareMathOperator{\Ric}{Ric}
+\DeclareMathOperator{\Scal}{Scal}
+\DeclareMathOperator{\Ein}{Ein}
+
+\DeclareMathOperator{\rel}{\;rel\,}
+
+\newenvironment{inline}\(\)
+
+\newcommand*\range[2]{#1, \dots, #2}
+\DeclarePairedDelimiterX\setrange[2]\lbrace\rbrace{#1, \dots, #2}
+\DeclarePairedDelimiterX\set[1]\lbrace\rbrace{#1}
+\DeclarePairedDelimiterX\iset[2]\lbrace\rbrace{#1 \;\delimsize\vert\; \mathopen{} #2}
+\DeclarePairedDelimiterX\ipr[2]\langle\rangle{#1,\, #2}
+%\DeclarePairedDelimiterX\ispa[2]\langle\rangle{#1 \;\delimsize\vert\; \mathopen{} #2}
+
+\DeclarePairedDelimiter\pa\lparen\rparen
+\DeclarePairedDelimiter\bra\lbrack\rbrack
+%\DeclarePairedDelimiter\spa\langle\rangle
+\DeclarePairedDelimiter\abs\lvert\rvert
+\DeclarePairedDelimiter\norm\lVert\rVert
+
+
+%% http://texblog.net/latex-archive/maths/amsmath-matrix/
+%\makeatletter
+%\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+%	\hskip -\arraycolsep
+%	\let\@ifnextchar\new@ifnextchar
+%	\array{#1}%
+%}
+%\makeatother
+
+
+%%%
+
+%% \nabla/dt operators
+%\diffdef{nabla}{
+%	op-symbol = \nabla,
+%	op-symbol-alt = {\mathrm d}
+%}
