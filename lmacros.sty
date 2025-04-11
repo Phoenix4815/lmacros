@@ -1,4 +1,4 @@
-\ProvidesPackage{lmacros}
+\ProvidesPackage{lmacros}[2025/04/11 Extra LaTeX Macros by Lorenz]
 
 \RequirePackage{amsmath,amsthm,mathtools}
 %\RequirePackage{diffcoeff}[=v4]
@@ -141,3 +141,21 @@
 %	op-symbol = \nabla,
 %	op-symbol-alt = {\mathrm d}
 %}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Define stuff for presentations,
+%% among those, we will define the "steps"-environment
+
+%% https://tex.stackexchange.com/questions/592909/have-option-conditionally-require-package
+\newif\ifshouldloadenumitem@lmacros
+\DeclareOption{notes}{\shouldloadenumitem@lmacrostrue}
+\ProcessOptions\relax
+
+\ifshouldloadenumitem@lmacros
+	\RequirePackage{enumitem}
+	%\setenumerate{leftmargin=*}
+	\newlist{steps}{enumerate}{1}
+	\setlist[steps,1]{leftmargin=4ex,resume=series,label=\arabic*. }
+	\setlist[enumerate,1]{label=(\roman*)}
+\fi

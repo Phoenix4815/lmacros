@@ -113,3 +113,10 @@
 \norm*{arg}#m
 \norm[size]{arg}#m
 \norm{arg}#m
+
+# Special autocompletes for "notes" package option
+#ifOption:notes
+#include:enumitem
+\begin{steps}#\itemize
+\end{steps}
+#endif
