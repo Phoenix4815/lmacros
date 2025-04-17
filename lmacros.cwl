@@ -51,6 +51,7 @@
 \frakg#m
 
 \ceq#m
+\longto#m
 
 \restr#m
 \Id#m
